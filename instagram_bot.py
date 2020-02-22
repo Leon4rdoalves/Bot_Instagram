@@ -20,19 +20,18 @@ class InstaBot:
 
         user_element = driver.find_element_by_xpath("//input[@name='username']")
         user_element.clear()
-        sleep(3)
         user_element.send_keys(self.username)
-        sleep(2)
+        sleep(3)
 
         password_element = driver.find_element_by_xpath("//input[@name='password']")
         password_element.clear()
         password_element.send_keys(self.password)
-        sleep(2)
+        sleep(3)
 
         password_element.send_keys(Keys.RETURN)
         sleep(3)
 
-        self.like("desenho")  # Hashtag a ser procurada
+        self.like("desenho")  # wacom, wacomcintiq
 
     def like(self, hashtag):
         # total = subtotal = 0
@@ -49,8 +48,6 @@ class InstaBot:
         pic_hrefs = [elem.get_attribute("href") for elem in hrefs]
         print(hashtag + " fotos: " + str(len(pic_hrefs)))
         print('\n')
-        # print(f'Total de fotos curtidas: {total}')
-        # print(f'Fotos curtidas neste sprint: {subtotal}\n')
 
         while True:
             for pic_href in pic_hrefs:
@@ -61,7 +58,7 @@ class InstaBot:
                     continue
                 driver.get(pic_href)
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                sleep(2)
+                sleep(5)
 
                 try:
                     sleep(5)
@@ -75,5 +72,5 @@ class InstaBot:
                     sleep(5)
 
 
-ebony = InstaBot('usuário', 'senha')
+ebony = InstaBot('ebony.artedigital', 'found.000%%%')
 ebony.login()
