@@ -8,6 +8,7 @@ class InstaBot:
     def __init__(self, username, password):
         self.username = username
         self.password = password
+        self.cont = 0
         self.driver = webdriver.Firefox(executable_path=r"/usr/local/bin/geckodriver")
 
     def login(self):
@@ -32,7 +33,7 @@ class InstaBot:
         password_element.send_keys(Keys.RETURN)
         sleep(randint(2, 5))
 
-        self.coment("caricaturas")  # wacom, wacomcintiq
+        self.coment("caricaturaspersonalizadas")  # wacom, wacomcintiq
 
     @staticmethod
     def digitando(frase, caixa):
@@ -41,7 +42,6 @@ class InstaBot:
             sleep(randint(1, 5) / 30)
 
     def coment(self, hashtag):
-        cont = 0
         driver = self.driver
         driver.get("https://www.instagram.com/explore/tags/" + hashtag + "/")
         sleep(randint(7, 10))
@@ -52,7 +52,8 @@ class InstaBot:
 
         hrefs = driver.find_elements_by_tag_name("a")
         pic_hrefs = [elem.get_attribute("href") for elem in hrefs]
-        print(hashtag + " fotos: " + str(len(pic_hrefs)))
+        print(hashtag + " Fotos carregadas: " + str(len(pic_hrefs)))
+        print(f'Quantidade de fotos comentadas: {self.cont}')
         print('\n')
 
         while True:
@@ -67,26 +68,31 @@ class InstaBot:
                 sleep(randint(4, 7))
 
                 try:
-                    comentarios = ['Muito legal seu trabalho', 'Parabéns, muito legal seu trabalho',
-                                   'Caricaturas digitais com preço promocional! Solicite seu orçamento',
+                    comentarios = ['Muito legal seu trabalho!', 'Parabéns, muito legal seu trabalho.',
+                                   'Caricaturas digitais com preço promocional! Solicite seu orçamento.',
                                    'Veja meu perfil e solicite seu orçamento!', 'Top!', 'Muito legal :)',
-                                   'Curte caricaturas? Da uma olhada no meu perfil', 'Legal', 'Que maneiro',
+                                   'Curte caricaturas? Da uma olhada no meu perfil, estamos em promoção!',
+                                   'Legal!!!', 'Que maneiro!!!', 'Putz, muito maneiro rs!', ':)', ':o', ':D',
                                    'Ta rolando sorteio para meus seguidores, so vem!', 'Show', 'Q top',
                                    'Aí galera, minhas caricaturas estão em promoção, solicite seu orçamento',
-                                   'Gostei, bons traços!', ':D', 'Curti (y)']
+                                   'Gostei, bons traços!', ':D', 'Curti (y)', 'Caraca, muito bom', 'Maneiro',
+                                   'Dá uma olhada na minha galeria, tenho uns desenhos legais tbm!', 'Show!!!',
+                                   'Bem feito', 'Bem legal!', 'Legal, eu tbm faço algumas e estamos em promoção!']
 
                     driver.find_element_by_class_name('Ypffh').click()
-                    sleep(randint(2, 4))
+                    sleep(randint(5, 8))
                     campo_comentario = driver.find_element_by_class_name('Ypffh')
-                    sleep(randint(2, 6))
+                    sleep(randint(8, 13))
                     self.digitando(choice(comentarios), campo_comentario)
                     sleep(randint(30, 40))
                     driver.find_element_by_xpath("//button[contains(text(),'Publicar')]").click()
-                    sleep(randint(4, 6))
+                    sleep(randint(10, 15))
+                    self.cont += 1
+
                 except Exception as e:
                     print(e)
-                    sleep(randint(3, 6))
+                    sleep(randint(5, 7))
 
 
-ebony_coment_bot = InstaBot('ebony.artedigital', 'found.000%%%')
+ebony_coment_bot = InstaBot('seu usuário', 'sua senha')
 ebony_coment_bot.login()
