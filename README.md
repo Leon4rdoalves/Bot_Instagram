@@ -19,7 +19,7 @@
 * Deixar de seguir/ desfazer amizade
 * Ações pausadas
 * Definir início e fim
-* Definir pausa em minutos entre um acão e outra
+* Definir pausa em minutos entre uma acão e outra
 #### EM DESENVOLVIMENTO:
 * Envio de mensagens por Direct/ Messenger
 #### EM PLANEJAMENTO:
@@ -28,6 +28,7 @@
 ---
 ### IDE
 * Pycharm
+* VScode
 ---
 ### Contribuição:
 * À vontade... 
