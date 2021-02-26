@@ -27,8 +27,7 @@
 * Captação de leads
 ---
 
-###ps. 
-Inspecione elementos em caso de erros devido ao nome diferente de classes e elementos na aplicação atual do instagram.
+### ps. Inspecione elementos em caso de erros devido ao nome diferente de classes e elementos na aplicação atual do instagram.
 ---
 ### IDE
 * Pycharm
