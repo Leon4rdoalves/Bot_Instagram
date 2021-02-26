@@ -72,5 +72,5 @@ class InstaBot:
                     sleep(5)
 
 
-ebony = InstaBot('ebony.artedigital', 'found.000%%%')
+ebony = InstaBot('seulogin', 'suasenha')
 ebony.login()
