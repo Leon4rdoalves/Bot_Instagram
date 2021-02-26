@@ -26,6 +26,10 @@
 * Postagens programadas de fotos/ vídeos
 * Captação de leads
 ---
+
+###ps. 
+Inspecione elementos em caso de erros devido ao nome diferente de classes e elementos na aplicação atual do instagram.
+---
 ### IDE
 * Pycharm
 * VScode
@@ -35,4 +39,4 @@
 ### Contribution:
 * Make yourself comfortable
 ### Contact:
-* instagram.com/ebony_prog
+* instagram.com/ebony.programador
